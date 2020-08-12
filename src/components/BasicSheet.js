@@ -1,44 +1,52 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Datasheet from '../lib/DataSheet';
 
 const BasicSheet = ()=>{
-  const [grid, setGrid] = useState([
-    [
-      { readOnly: true, value: 'Pestação' },
-      { value: 'Código', readOnly: true },
-      { value: 'Produto', readOnly: true },
-      { value: 'Dias', readOnly: true },
-      { value: 'Valor', readOnly: true },
-    ],
-    [
-      { readOnly: true, value: 1 },
-      { value: 1 },
-      { value: 3 },
-      { value: 3 },
-      { value: 3 },
-    ],
-    [
-      { readOnly: true, value: 2 },
-      { value: 2 },
-      { value: 4 },
-      { value: 4 },
-      { value: 4 },
-    ],
-    [
-      { readOnly: true, value: 3 },
-      { value: 1 },
-      { value: 3 },
-      { value: 3 },
-      { value: 3 },
-    ],
-    [
-      { readOnly: true, value: 4 },
-      { value: 2 },
-      { value: 4 },
-      { value: 4 },
-      { value: 4 },
-    ],
-  ])
+  const [grid, setGrid] = useState([])
+  useEffect(()=>{
+    function setgrid(){
+      setGrid([
+        [
+          { readOnly: true, value: 'Pestação' },
+          { value: 'Código', readOnly: true },
+          { value: 'Produto', readOnly: true },
+          { value: 'Dias', readOnly: true },
+          { value: 'Valor', readOnly: true },
+        ],
+        [
+          { readOnly: true, value: 1 },
+          { value: 1 },
+          { value: 3 },
+          { value: 3 },
+          { value: 3 },
+        ],
+        [
+          { readOnly: true, value: 2 },
+          { value: 2 },
+          { value: 4 },
+          { value: 4 },
+          { value: 4 },
+        ],
+        [
+          { readOnly: true, value: 3 },
+          { value: 1 },
+          { value: 3 },
+          { value: 3 },
+          { value: 3 },
+        ],
+        [
+          { readOnly: true, value: 4 },
+          { value: 2 },
+          { value: 4 },
+          { value: 4 },
+          { value: 8 },
+        ],
+      ])
+    }
+    setgrid()
+  },[])
+
+  
 
   const valueRenderer = cell => cell.value;
   const onCellsChanged = changes => {
