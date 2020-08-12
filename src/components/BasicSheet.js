@@ -4,11 +4,11 @@ import Datasheet from '../lib/DataSheet';
 const BasicSheet = ()=>{
   const [grid, setGrid] = useState([
     [
-      { readOnly: true, value: '' },
-      { value: 'A', readOnly: true },
-      { value: 'B', readOnly: true },
-      { value: 'C', readOnly: true },
-      { value: 'D', readOnly: true },
+      { readOnly: true, value: 'Pestação' },
+      { value: 'Código', readOnly: true },
+      { value: 'Produto', readOnly: true },
+      { value: 'Dias', readOnly: true },
+      { value: 'Valor', readOnly: true },
     ],
     [
       { readOnly: true, value: 1 },
@@ -49,6 +49,7 @@ const BasicSheet = ()=>{
   };
   const onContextMenu = (e, cell, i, j) =>
     cell.readOnly ? e.preventDefault() : null;
+    
   return(
     <Datasheet
         data={grid}

@@ -5,13 +5,12 @@ import  './lib/react-datasheet.css'
 function App() {
   return (
     <div>
-        <div className={'container'} >
-          <div className={'sheet-container'}>
-            <BasicSheet />
-          </div>
-          <div className={'divider'} />
-          </div>
+    <div className={'container'} >
+      <div className={'sheet-container'}>
+        <BasicSheet />
       </div>
+    </div>
+  </div>
   );
 }
 
