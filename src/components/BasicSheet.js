@@ -3,44 +3,23 @@ import Datasheet from '../lib/DataSheet';
 
 const BasicSheet = ()=>{
   const [grid, setGrid] = useState([])
+  const item =  [
+    { value: null },
+    { value: null, readOnly: true },
+    { value: null },
+    { value: null },
+  ]
+  const [rows, setRows] = useState(grid.length)
+
   useEffect(()=>{
     function setgrid(){
       setGrid([
         [
-          { readOnly: true, value: 'Pestação' },
           { value: 'Código', readOnly: true },
           { value: 'Produto', readOnly: true },
           { value: 'Dias', readOnly: true },
           { value: 'Valor', readOnly: true },
-        ],
-        [
-          { readOnly: true, value: 1 },
-          { value: 1 },
-          { value: 3 },
-          { value: 3 },
-          { value: 3 },
-        ],
-        [
-          { readOnly: true, value: 2 },
-          { value: 2 },
-          { value: 4 },
-          { value: 4 },
-          { value: 4 },
-        ],
-        [
-          { readOnly: true, value: 3 },
-          { value: 1 },
-          { value: 3 },
-          { value: 3 },
-          { value: 3 },
-        ],
-        [
-          { readOnly: true, value: 4 },
-          { value: 2 },
-          { value: 4 },
-          { value: 4 },
-          { value: 8 },
-        ],
+        ],   
       ])
     }
     setgrid()
@@ -59,12 +38,21 @@ const BasicSheet = ()=>{
     cell.readOnly ? e.preventDefault() : null;
     
   return(
+    <>
+    <button onClick={()=> {
+      setGrid([...grid, item])
+      setRows(grid.length)
+    
+    }}>Adicionar</button>
+  <p>{rows <=1 ? `${rows} Parcela` : `${rows} Parcelas`}</p>
     <Datasheet
         data={grid}
         valueRenderer={valueRenderer}
         onContextMenu={onContextMenu}
         onCellsChanged={onCellsChanged}
       />
+
+      </>
   )
 }
 
